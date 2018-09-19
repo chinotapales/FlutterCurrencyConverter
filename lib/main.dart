@@ -86,6 +86,10 @@ class _MainPageState extends State<MainPage>  with AfterLayoutMixin<MainPage> {
 
   void _searchValue() {
     print("SEARCH: ${searchController.text}");
+
+    if (searchController.text.isEmpty) {
+      print("EMPTY LIST");
+    }
   }
 
   @override
@@ -257,6 +261,7 @@ class _MainPageState extends State<MainPage>  with AfterLayoutMixin<MainPage> {
                             child: new ListView.builder(
                               itemCount: this.rates != null ? this.rates.length : 0,
                               itemBuilder: (context, index) {
+                                final rate = rates[this.keyIndices[index]];
                                 return new Container(
                                   height: 42.0,
                                   child: new Column(
@@ -264,8 +269,8 @@ class _MainPageState extends State<MainPage>  with AfterLayoutMixin<MainPage> {
                                       new Row(
                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: <Widget>[
-                                          new Text(rates[this.keyIndices[index]]["flag"] + " " + keyIndices[index]),
-                                          new Text(rates[this.keyIndices[index]]["symbol"] + rates[this.keyIndices[index]]["value"].toStringAsFixed(2)),
+                                          new Text(rate["flag"] + " " + keyIndices[index]),
+                                          new Text(rate["symbol"] + rate["value"].toStringAsFixed(2)),
                                         ],
                                       ),
                                       new Divider(),
