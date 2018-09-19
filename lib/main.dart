@@ -35,13 +35,14 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage>  with AfterLayoutMixin<MainPage> {
 
   var _isRatesLoading = true;
+  var _isSearchOpened = false;
 
   var service = new Service();
 
   var keyIndices = new List();
-  var rates = new LinkedHashMap();
+  var searchIndices = new List();
 
-  final searchController = TextEditingController();
+  var rates = new LinkedHashMap();
 
   String _getDate() {
     DateTime now = new DateTime.now();
@@ -54,11 +55,12 @@ class _MainPageState extends State<MainPage>  with AfterLayoutMixin<MainPage> {
     final response = await service.getRates();
     if (response is Map) {
       this.rates = response;
-
       for (var key in response.keys) {
         print(response[key]["flag"] + " " + response[key]["definition"] + ": " + response[key]["symbol"].toString() + response[key]["value"].toString());
         keyIndices.add(key);
       }
+
+      searchIndices = keyIndices;
 
       setState(() {
         _isRatesLoading = false;
@@ -84,21 +86,6 @@ class _MainPageState extends State<MainPage>  with AfterLayoutMixin<MainPage> {
     }
   }
 
-  void _searchValue() {
-    print("SEARCH: ${searchController.text}");
-
-    if (searchController.text.isEmpty) {
-      print("EMPTY LIST");
-    }
-  }
-
-  @override
-  void initState() {
-    super.initState();
-
-    searchController.addListener(_searchValue);
-  }
-
   @override
   void afterFirstLayout(BuildContext context) {
     setState(() {
@@ -108,13 +95,6 @@ class _MainPageState extends State<MainPage>  with AfterLayoutMixin<MainPage> {
     //Testing Purposes
     service.currencyParam = "USD";
     _getRates();
-  }
-
-  @override
-  void dispose() {
-    searchController.removeListener(_searchValue);
-    searchController.dispose();
-    super.dispose();
   }
 
   @override
@@ -189,7 +169,6 @@ class _MainPageState extends State<MainPage>  with AfterLayoutMixin<MainPage> {
                         child: new Center(
                           child: new Container(
                             child: new TextField(
-                              controller: searchController,
                               decoration: new InputDecoration(
                                 icon: Icon(Icons.search),
                                 hintText: "Search",
@@ -200,6 +179,25 @@ class _MainPageState extends State<MainPage>  with AfterLayoutMixin<MainPage> {
                                 fontSize: 12.0,
                                 fontFamily: "Futura",
                               ),
+                              onChanged: (text) {
+                                setState(() {
+                                  _isSearchOpened = true;
+                                });
+                              },
+                              onSubmitted: (text) {
+                                var searchIndices = List();
+                                if (text.isEmpty) {
+                                  searchIndices = this.keyIndices;
+                                }
+                                else {
+                                  searchIndices = keyIndices.where((item) => item.toString().contains(text.toUpperCase())).toList();
+                                }
+                                setState(() {
+                                  this.searchIndices = searchIndices;
+                                  this.rates = this.rates;
+                                  _isSearchOpened = false;
+                                });
+                              },
                             ),
                           ),
                         ),
@@ -258,10 +256,12 @@ class _MainPageState extends State<MainPage>  with AfterLayoutMixin<MainPage> {
                             ],
                           ),
                           child: new Center(
-                            child: new ListView.builder(
-                              itemCount: this.rates != null ? this.rates.length : 0,
+                            child: _isSearchOpened ? new Center(
+                              child: new CircularProgressIndicator(),
+                              ) : new ListView.builder(
+                              itemCount: this.rates != null ? this.searchIndices.length : 0,
                               itemBuilder: (context, index) {
-                                final rate = rates[this.keyIndices[index]];
+                                final rate = rates[this.searchIndices[index]];
                                 return new Container(
                                   height: 42.0,
                                   child: new Column(
@@ -269,7 +269,7 @@ class _MainPageState extends State<MainPage>  with AfterLayoutMixin<MainPage> {
                                       new Row(
                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: <Widget>[
-                                          new Text(rate["flag"] + " " + keyIndices[index]),
+                                          new Text(rate["flag"] + " " + searchIndices[index]),
                                           new Text(rate["symbol"] + rate["value"].toStringAsFixed(2)),
                                         ],
                                       ),
