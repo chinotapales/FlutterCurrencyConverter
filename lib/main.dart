@@ -59,7 +59,7 @@ class _MainPageState extends State<MainPage>  with AfterLayoutMixin<MainPage> {
         print(response[key]["flag"] + " " + response[key]["definition"] + ": " + response[key]["symbol"].toString() + response[key]["value"].toString());
         keyIndices.add(key);
       }
-
+      
       searchIndices = keyIndices;
 
       setState(() {
