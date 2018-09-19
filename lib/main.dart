@@ -54,15 +54,16 @@ class _MainPageState extends State<MainPage>  with AfterLayoutMixin<MainPage> {
   void _getRates() async {
     final response = await service.getRates();
     if (response is Map) {
-      this.rates = response;
+
+      this.keyIndices.clear();
       for (var key in response.keys) {
         print(response[key]["flag"] + " " + response[key]["definition"] + ": " + response[key]["symbol"].toString() + response[key]["value"].toString());
         keyIndices.add(key);
       }
-      
-      searchIndices = keyIndices;
 
       setState(() {
+        this.searchIndices = this.keyIndices;
+        this.rates = response;
         _isRatesLoading = false;
       });
     }
