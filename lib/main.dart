@@ -16,15 +16,9 @@ import 'package:flutter_currency_conversion/error/api_error.dart';
 void main() => runApp(new FlutterCurrencyConverter());
 
 class FlutterCurrencyConverter extends StatelessWidget {
-
-  void _initPreferences() async {
-    SharedPreferences preferences = await SharedPreferences.getInstance();
-    await preferences.setString("currencyParam", "USD");
-  }
-
+  
   @override
   Widget build(BuildContext context) {
-    _initPreferences();
     return new MaterialApp(
       theme: ThemeData(
         primaryColor: Colors.white,
@@ -57,8 +51,9 @@ class _MainPageState extends State<MainPage>  with AfterLayoutMixin<MainPage> {
 
   var rates = new LinkedHashMap();
 
-  void _instantiatePreferences() async {
+  void _initPreferences() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
+    await preferences.setString("currencyParam", "USD");
     setState(() {    
       this.preferences = preferences;
     });
@@ -113,6 +108,12 @@ class _MainPageState extends State<MainPage>  with AfterLayoutMixin<MainPage> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    _initPreferences();
+  }
+
+  @override
   void afterFirstLayout(BuildContext context) {
     setState(() {
       _isRatesLoading = true;
@@ -122,7 +123,6 @@ class _MainPageState extends State<MainPage>  with AfterLayoutMixin<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-    _instantiatePreferences();
     return new DefaultTabController(
       length: 2,
       child: Scaffold(
@@ -233,7 +233,7 @@ class _MainPageState extends State<MainPage>  with AfterLayoutMixin<MainPage> {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => SelectCurrencyPage()),
+                            MaterialPageRoute(builder: (context) => SelectCurrencyPage(this.keyIndices, this.rates)),
                           );
                         },
                         child: new Container(
