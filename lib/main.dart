@@ -225,7 +225,7 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
                             child: new TextField(
                               decoration: new InputDecoration(
                                 icon: Icon(Icons.search),
-                                hintText: "Search",
+                                hintText: "Search (ex. USD, EUR, GBP)",
                                 border: InputBorder.none,
                               ),
                               style: new TextStyle(
