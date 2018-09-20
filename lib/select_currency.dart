@@ -161,19 +161,17 @@ class _SelectCurrencyState extends State<SelectCurrencyPage> {
                                   Navigator.pop(context);
                                 }
                               },
-                              child: new Container(
-                                child: new Column(
-                                  children: <Widget>[
-                                    new Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: <Widget>[
-                                        new Text(rate["flag"] + " " + searchIndices[index]),
-                                        new Text(rate["definition"]),
-                                      ],
-                                    ),
-                                    new Divider(),
-                                  ],
-                                ),
+                              child: new Column(
+                                children: <Widget>[
+                                  new Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: <Widget>[
+                                      new Text(rate["flag"] + " " + searchIndices[index]),
+                                      new Text(rate["definition"]),
+                                    ],
+                                  ),
+                                  new Divider(),
+                                ],
                               ),
                             ),
                           );
