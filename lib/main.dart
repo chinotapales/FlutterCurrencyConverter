@@ -192,6 +192,28 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
           children: [
             new Column(
               children: <Widget>[
+                new Padding(
+                  padding: new EdgeInsets.fromLTRB(24.0, 24.0, 24.0, 0.0),
+                  child: new Container(
+                    color: Colors.transparent,
+                    child: new Container(
+                      padding: new EdgeInsets.all(12.0),
+                      decoration: new BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: new BorderRadius.all(const Radius.circular(10.0)),
+                        boxShadow: <BoxShadow>[
+                          BoxShadow(
+                            color: Colors.grey,
+                            offset: Offset(1.0, 1.0),
+                            blurRadius: 3.0,
+                          ),
+                        ],
+                      ),
+                      child: new Center(    
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
             _isRatesLoading ?  new Center(
