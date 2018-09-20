@@ -13,6 +13,8 @@ import 'package:flutter_currency_conversion/data/service.dart';
 import 'package:flutter_currency_conversion/model/convertion.dart';
 import 'package:flutter_currency_conversion/error/api_error.dart';
 
+final RouteObserver<PageRoute> routeObserver = new RouteObserver<PageRoute>();
+
 void main() => runApp(new FlutterCurrencyConverter());
 
 class FlutterCurrencyConverter extends StatelessWidget {
@@ -25,6 +27,7 @@ class FlutterCurrencyConverter extends StatelessWidget {
         accentColor: Color.fromRGBO(75, 214, 145, 1.0),
         fontFamily: 'Rockwell'),
       home: new MainPage(),
+      navigatorObservers: [routeObserver],
     );
   }
 }
@@ -37,7 +40,7 @@ class MainPage extends StatefulWidget {
   _MainPageState createState() => new _MainPageState();
 }
 
-class _MainPageState extends State<MainPage>  with AfterLayoutMixin<MainPage> {
+class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, RouteAware {
 
   dynamic preferences = SharedPreferences;
 
@@ -115,6 +118,30 @@ class _MainPageState extends State<MainPage>  with AfterLayoutMixin<MainPage> {
 
   @override
   void afterFirstLayout(BuildContext context) {
+    setState(() {
+      _isRatesLoading = true;
+    });
+    _getRates();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    routeObserver.subscribe(this, ModalRoute.of(context));
+  }
+
+  @override
+  void dispose() {
+    routeObserver.unsubscribe(this);
+    super.dispose();
+  }
+
+  @override
+  void didPush() {
+  }
+
+  @override
+  void didPopNext() {
     setState(() {
       _isRatesLoading = true;
     });
