@@ -6,13 +6,14 @@ import 'dart:collection';
 
 class SelectCurrencyPage extends StatefulWidget {
 
+  int navIndex;
   var keyIndices = new List();
   var rates = new LinkedHashMap();
 
-  SelectCurrencyPage(this.keyIndices, this.rates);
+  SelectCurrencyPage(this.keyIndices, this.rates, this.navIndex);
 
   @override
-  _SelectCurrencyState createState() => new _SelectCurrencyState(keyIndices, rates);
+  _SelectCurrencyState createState() => new _SelectCurrencyState(keyIndices, rates, navIndex);
 }
 
 class _SelectCurrencyState extends State<SelectCurrencyPage> {
@@ -21,13 +22,24 @@ class _SelectCurrencyState extends State<SelectCurrencyPage> {
 
   var _isSearchOpened = false;
 
+  int navIndex;
   var keyIndices = new List();
   var searchIndices = new List();
 
   var rates = new LinkedHashMap();
 
-  _SelectCurrencyState(this.keyIndices, this.rates) {
+  _SelectCurrencyState(this.keyIndices, this.rates, this.navIndex) {
     this.searchIndices = keyIndices;
+  }
+
+  void _setPreferences(String index) async {
+    await preferences.setString("currencyParam", index);
+
+    print("Successfully Set " + index + " as currencyParam");
+
+    setState(() {    
+      this.preferences = preferences;
+    });
   }
 
   void _instantiatePreferences() async {
@@ -142,17 +154,27 @@ class _SelectCurrencyState extends State<SelectCurrencyPage> {
                           final rate = rates[this.searchIndices[index]];
                           return new Container(
                             height: 42.0,
-                            child: new Column(
-                              children: <Widget>[
-                                new Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            child: new GestureDetector(
+                              onTapUp: (tapDetails) {
+                                if (navIndex == 0) {
+                                  _setPreferences(searchIndices[index]);
+                                  Navigator.pop(context);
+                                }
+                              },
+                              child: new Container(
+                                child: new Column(
                                   children: <Widget>[
-                                    new Text(rate["flag"] + " " + searchIndices[index]),
-                                    new Text(rate["symbol"] + rate["value"].toStringAsFixed(2)),
+                                    new Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: <Widget>[
+                                        new Text(rate["flag"] + " " + searchIndices[index]),
+                                        new Text(rate["definition"]),
+                                      ],
+                                    ),
+                                    new Divider(),
                                   ],
                                 ),
-                                new Divider(),
-                              ],
+                              ),
                             ),
                           );
                         }

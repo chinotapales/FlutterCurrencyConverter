@@ -56,7 +56,13 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
 
   void _initPreferences() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
-    await preferences.setString("currencyParam", "USD");
+    if (!(preferences.getKeys().contains("currencyParam"))) {
+      await preferences.setString("currencyParam", "USD");
+      print("Successfully Initialized User Defaults");
+    }
+    else {
+      print("User Defaults Already Instanciated");
+    }
     setState(() {    
       this.preferences = preferences;
     });
@@ -260,7 +266,7 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => SelectCurrencyPage(this.keyIndices, this.rates)),
+                            MaterialPageRoute(builder: (context) => SelectCurrencyPage(this.keyIndices, this.rates, 0)),
                           );
                         },
                         child: new Container(
