@@ -42,7 +42,7 @@ class _SelectCurrencyState extends State<SelectCurrencyPage> {
     });
   }
 
-  void _instantiatePreferences() async {
+  void _initPreferences() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     setState(() {    
       this.preferences = preferences;
@@ -52,7 +52,7 @@ class _SelectCurrencyState extends State<SelectCurrencyPage> {
   @override
   void initState() {
     super.initState();
-    _instantiatePreferences();
+    _initPreferences();
   }
 
   @override
