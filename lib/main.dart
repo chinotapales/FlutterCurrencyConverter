@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+
+import 'package:flutter_currency_conversion/select_currency.dart';
+
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:intl/intl.dart';
@@ -127,19 +130,19 @@ class _MainPageState extends State<MainPage>  with AfterLayoutMixin<MainPage> {
           bottom: TabBar(
             tabs: [
               Tab(child: Text("Convert", style: new TextStyle(
-                    fontSize: 12.0,
+                    fontSize: 13.0,
                   ),
                 ),
               ),
               Tab(child: Text("Rates", style: new TextStyle(
-                    fontSize: 12.0,
+                    fontSize: 13.0,
                   ),
                 ),
               ),
             ]
           ),
           title: Text(_getDate(), style: new TextStyle(
-              fontSize: 13.0,
+              fontSize: 15.0,
             ),
           ),
           actions: <Widget>[
@@ -228,7 +231,10 @@ class _MainPageState extends State<MainPage>  with AfterLayoutMixin<MainPage> {
                       color: Colors.transparent,
                       child: new GestureDetector(
                         onTap: () {
-                          print("Select Currency Tapped");
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => SelectCurrencyPage()),
+                          );
                         },
                         child: new Container(
                           padding: new EdgeInsets.all(12.0),
