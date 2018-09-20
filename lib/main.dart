@@ -97,10 +97,10 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
       });
     }
     else if (response is ApiError) {
-      print(response.error);
-      setState(() {
-        _isRatesLoading = false;
-      });
+      _showDialog("Error", response.error);
+      // setState(() {
+      //   _isRatesLoading = false;
+      // });
     }
   }
 
@@ -112,8 +112,28 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
       print(response.convertionRates[1]["symbol"].toString() + response.rate.toString());
     }
     else if (response is ApiError) {
-      print(response.error);
+      _showDialog("Error", response.error);
     }
+  }
+
+  void _showDialog(String title, String content) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: new Text(title),
+          content: new Text(content),
+          actions: <Widget>[
+            new FlatButton(
+              child: new Text("Close"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      }
+    );
   }
 
   @override
