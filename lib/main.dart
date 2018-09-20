@@ -226,29 +226,34 @@ class _MainPageState extends State<MainPage>  with AfterLayoutMixin<MainPage> {
                     padding: new EdgeInsets.fromLTRB(24.0, 24.0, 24.0, 0.0),
                     child: new Container(
                       color: Colors.transparent,
-                      child: new Container(
-                        padding: new EdgeInsets.all(12.0),
-                        decoration: new BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: new BorderRadius.all(const Radius.circular(10.0)),
-                          boxShadow: <BoxShadow>[
-                            BoxShadow(
-                              color: Colors.grey,
-                              offset: Offset(1.0, 1.0),
-                              blurRadius: 3.0,
-                            ),
-                          ],
-                        ),
-                        child: new Center(
-                          child: new Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[
-                              new Text(_getCurrency()),
-                              new Icon(Icons.arrow_forward_ios,
+                      child: new GestureDetector(
+                        onTap: () {
+                          print("Select Currency Tapped");
+                        },
+                        child: new Container(
+                          padding: new EdgeInsets.all(12.0),
+                          decoration: new BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: new BorderRadius.all(const Radius.circular(10.0)),
+                            boxShadow: <BoxShadow>[
+                              BoxShadow(
                                 color: Colors.grey,
-                                size: 14.0,
+                                offset: Offset(1.0, 1.0),
+                                blurRadius: 3.0,
                               ),
                             ],
+                          ),
+                          child: new Center(
+                            child: new Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                new Text(_getCurrency()),
+                                new Icon(Icons.arrow_forward_ios,
+                                  color: Colors.grey,
+                                  size: 14.0,
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
