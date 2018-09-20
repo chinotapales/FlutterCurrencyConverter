@@ -1,3 +1,5 @@
+import 'package:shared_preferences/shared_preferences.dart';
+
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -9,8 +11,6 @@ class Service {
   
   String url = "https://v3.exchangerate-api.com/";
   String apiKey = "defff1f9da263b5ebd3017ac";
-
-  String currencyParam = "";
 
   String fromParam = "";
   String toParam = "";
@@ -24,6 +24,9 @@ class Service {
   }
 
   dynamic getRates() async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+
+    final currencyParam = preferences.getString("currencyParam") ?? '';
     var url = rates + currencyParam;
     final response = await http.get(url);
     final map = json.decode(response.body);

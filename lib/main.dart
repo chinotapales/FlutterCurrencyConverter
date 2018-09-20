@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:intl/intl.dart';
 import 'package:after_layout/after_layout.dart';
@@ -12,8 +13,15 @@ import 'package:flutter_currency_conversion/error/api_error.dart';
 void main() => runApp(new FlutterCurrencyConverter());
 
 class FlutterCurrencyConverter extends StatelessWidget {
+
+  void _initPreferences() async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    await preferences.setString("currencyParam", "USD");
+  }
+
   @override
   Widget build(BuildContext context) {
+    _initPreferences();
     return new MaterialApp(
       theme: ThemeData(
         primaryColor: Colors.white,
@@ -92,9 +100,6 @@ class _MainPageState extends State<MainPage>  with AfterLayoutMixin<MainPage> {
     setState(() {
       _isRatesLoading = true;
     });
-
-    //Testing Purposes
-    service.currencyParam = "USD";
     _getRates();
   }
 
@@ -128,9 +133,6 @@ class _MainPageState extends State<MainPage>  with AfterLayoutMixin<MainPage> {
               setState(() {
                 _isRatesLoading = true;
               });
-
-              //Testing Purposes
-              service.currencyParam = "USD";
               _getRates();
             },)
           ],
