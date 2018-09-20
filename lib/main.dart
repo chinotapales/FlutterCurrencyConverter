@@ -98,9 +98,6 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
     }
     else if (response is ApiError) {
       _showDialog("Error", response.error);
-      // setState(() {
-      //   _isRatesLoading = false;
-      // });
     }
   }
 
@@ -217,7 +214,7 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
                   child: new Container(
                     color: Colors.transparent,
                     child: new Container(
-                      padding: new EdgeInsets.all(12.0),
+                      padding: new EdgeInsets.all(16.0),
                       decoration: new BoxDecoration(
                         color: Colors.white,
                         borderRadius: new BorderRadius.all(const Radius.circular(10.0)),
@@ -229,7 +226,91 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
                           ),
                         ],
                       ),
-                      child: new Center(    
+                      child: new Center(
+                        child: new Column(
+                          children: <Widget>[
+                            new Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                new Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  children: <Widget>[
+                                    new Text("🇺🇸 USD", style: new TextStyle(
+                                        fontSize: 17.0,
+                                      ),
+                                    ),
+                                    new Container(
+                                      width: 4.0,
+                                    ),
+                                    new Icon(Icons.arrow_forward_ios,
+                                      color: Colors.grey,
+                                      size: 13.0,
+                                    ),
+                                  ],
+                                ),
+                                new Text("\$1,000", style: new TextStyle(
+                                    fontSize: 17.0,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            new Container(
+                              height: 6.0,
+                            ),
+                            new Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                new FloatingActionButton(
+                                  elevation: 4.0,
+                                  foregroundColor: Colors.white,
+                                  child: new Icon(Icons.swap_vert),
+                                  mini: true,
+                                  onPressed: () {
+
+                                  },
+                                ),
+                                new Container(
+                                  width: 232.0,
+                                  height: 0.5,
+                                  color: Colors.grey,
+                                )
+                              ],
+                            ),
+                            new Container(
+                              height: 6.0,
+                            ),
+                            new Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                new Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  children: <Widget>[
+                                    new Text("🇵🇭 PHP", style: new TextStyle(
+                                        fontSize: 17.0,
+                                      ),
+                                    ),
+                                    new Container(
+                                      width: 4.0,
+                                    ),
+                                    new Icon(Icons.arrow_forward_ios,
+                                      color: Colors.grey,
+                                      size: 13.0,
+                                    ),
+                                  ],
+                                ),
+                                new Text("₱53,980", style: new TextStyle(
+                                    fontSize: 17.0,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),    
                       ),
                     ),
                   ),
