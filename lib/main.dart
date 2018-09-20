@@ -42,6 +42,8 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage>  with AfterLayoutMixin<MainPage> {
 
+  dynamic preferences = SharedPreferences;
+
   var _isRatesLoading = true;
   var _isSearchOpened = false;
 
@@ -51,6 +53,18 @@ class _MainPageState extends State<MainPage>  with AfterLayoutMixin<MainPage> {
   var searchIndices = new List();
 
   var rates = new LinkedHashMap();
+
+  void _instantiatePreferences() async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    setState(() {    
+      this.preferences = preferences;
+    });
+  }
+
+  String _getCurrency() {
+    final currencyParam = preferences.getString("currencyParam") ?? '';
+    return this.rates[currencyParam]["flag"] + " " + currencyParam;
+  }
 
   String _getDate() {
     DateTime now = new DateTime.now();
@@ -105,6 +119,7 @@ class _MainPageState extends State<MainPage>  with AfterLayoutMixin<MainPage> {
 
   @override
   Widget build(BuildContext context) {
+    _instantiatePreferences();
     return new DefaultTabController(
       length: 2,
       child: Scaffold(
@@ -228,7 +243,7 @@ class _MainPageState extends State<MainPage>  with AfterLayoutMixin<MainPage> {
                           child: new Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
-                              new Text("🇺🇸 USD"),
+                              new Text(_getCurrency()),
                               new Icon(Icons.arrow_forward_ios,
                                 color: Colors.grey,
                                 size: 14.0,

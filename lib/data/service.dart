@@ -25,8 +25,8 @@ class Service {
 
   dynamic getRates() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
-
     final currencyParam = preferences.getString("currencyParam") ?? '';
+    
     var url = rates + currencyParam;
     final response = await http.get(url);
     final map = json.decode(response.body);
