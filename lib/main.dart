@@ -273,9 +273,9 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
                                   },
                                 ),
                                 new Container(
-                                  width: 232.0,
+                                  width: 220.0,
                                   height: 0.5,
-                                  color: Colors.grey,
+                                  color: Color.fromARGB(30, 0, 0, 0),
                                 )
                               ],
                             ),
