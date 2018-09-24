@@ -54,6 +54,10 @@ class _SelectCurrencyState extends State<SelectCurrencyPage> {
     });
   }
 
+  String _getImageName(String index) {
+    return "assets/" + index + ".png";
+  }
+
   @override
   void initState() {
     super.initState();
@@ -169,7 +173,19 @@ class _SelectCurrencyState extends State<SelectCurrencyPage> {
                                   new Row(
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: <Widget>[
-                                      new Text(rate["flag"] + " " + searchIndices[index]),
+                                      new Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                        children: <Widget>[
+                                          new Image(image: new AssetImage(
+                                            _getImageName(searchIndices[index])),
+                                            width: 18.0,
+                                            height: 18.0),
+                                          new Container(
+                                            width: 6.0,
+                                          ),
+                                          new Text(searchIndices[index]),
+                                        ],
+                                      ),
                                       new Text(rate["definition"]),
                                     ],
                                   ),
