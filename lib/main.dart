@@ -306,7 +306,7 @@ class _MainPageState extends State<MainPage> with RouteAware {
                   child: new Container(
                     color: Colors.transparent,
                     child: new Container(
-                      padding: new EdgeInsets.all(16.0),
+                      padding: new EdgeInsets.all(12.0),
                       decoration: new BoxDecoration(
                         color: Colors.white,
                         borderRadius: new BorderRadius.all(const Radius.circular(10.0)),
