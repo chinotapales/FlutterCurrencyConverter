@@ -73,9 +73,10 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
   }
 
   void _swapParams() async {
+    await preferences.setString("currencyParam", convertion.to);
     await preferences.setString("fromParam", convertion.to);
     await preferences.setString("toParam", convertion.from);
-    _getConvertion();
+    _getRates();
   }
 
   String _getCurrency() {
@@ -114,6 +115,7 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
         this.searchIndices = this.keyIndices;
         this.rates = response;
         _isRatesLoading = false;
+        _getConvertion();
       });
     }
     else if (response is ApiError) {
@@ -171,10 +173,9 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
   @override
   void afterFirstLayout(BuildContext context) {
     setState(() {
-      _isConvertionLoading = true;
       _isRatesLoading = true;
+      _isConvertionLoading = true;
     });
-    _getConvertion();
     _getRates();
   }
 
@@ -197,10 +198,9 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
   @override
   void didPopNext() {
     setState(() {
-      _isConvertionLoading = true;
       _isRatesLoading = true;
+      _isConvertionLoading = true;
     });
-    _getConvertion();
     _getRates();
   }
 
@@ -232,10 +232,9 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
             new IconButton(icon: new Icon(Icons.refresh),
             onPressed: () {
               setState(() {
-                _isConvertionLoading = true;
                 _isRatesLoading = true;
+                _isConvertionLoading = true;
               });
-              _getConvertion();
               _getRates();
             },)
           ],
@@ -274,7 +273,7 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
                                   onTap: () {
                                     Navigator.push(
                                       context,
-                                      MaterialPageRoute(builder: (context) => SelectCurrencyPage(this.keyIndices, this.rates, 1)),
+                                      MaterialPageRoute(builder: (context) => SelectCurrencyPage(this.keyIndices, this.rates, 0)),
                                     );
                                   },
                                   child: new Row(
@@ -338,7 +337,7 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
                                   onTap: () {
                                     Navigator.push(
                                       context,
-                                      MaterialPageRoute(builder: (context) => SelectCurrencyPage(this.keyIndices, this.rates, 2)),
+                                      MaterialPageRoute(builder: (context) => SelectCurrencyPage(this.keyIndices, this.rates, 1)),
                                     );
                                   },
                                   child: new Row(
