@@ -46,6 +46,7 @@ class _MainPageState extends State<MainPage> with RouteAware {
   var _isConvertionLoading = true;
   var _isRatesLoading = true;
   var _isSearchOpened = false;
+  var _isKeyEntered = false;
 
   var service = new Service();
 
@@ -54,6 +55,9 @@ class _MainPageState extends State<MainPage> with RouteAware {
 
   var convertion = new Convertion();
   var rates = new LinkedHashMap();
+
+  var currentValue = 1;
+  var convertedValue = 0.0;
 
   void _initPreferences() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
@@ -130,7 +134,8 @@ class _MainPageState extends State<MainPage> with RouteAware {
   }
 
   String _getToRate() {
-    return (convertion.convertionRates[1]["symbol"].toString() + convertion.rate.toStringAsFixed(2));
+    var toRate = this.currentValue * this.convertedValue;
+    return (convertion.convertionRates[1]["symbol"].toString() + toRate.toStringAsFixed(2));
   }
 
   void _getConvertion() async {
@@ -138,11 +143,32 @@ class _MainPageState extends State<MainPage> with RouteAware {
     if (response is Convertion) {
       setState(() {
         this.convertion = response;
+
+        this.currentValue = 1;
+        this.convertedValue = response.rate;
+
+        _isKeyEntered = false;
         _isConvertionLoading = false;
       });
     }
     else if (response is ApiError) {
       _showDialog("Error", response.error);
+    }
+  }
+
+  void _updateRate(int value) {
+    if (!_isKeyEntered && value != 1 && value != 0) {
+      setState(() {
+        this.currentValue = value;
+        _isKeyEntered = true;                               
+      });
+    }
+    else {
+      var rateString = currentValue.toString();
+      rateString = rateString += value.toString();
+      setState(() {
+        this.currentValue = int.parse(rateString);                                
+      });
     }
   }
 
@@ -288,7 +314,7 @@ class _MainPageState extends State<MainPage> with RouteAware {
                                     ],
                                   ),
                                 ),
-                                new Text(_getFromSymbol() + "1", style: new TextStyle(
+                                new Text(_getFromSymbol() + currentValue.toString(), style: new TextStyle(
                                     fontSize: 17.0,
                                   ),
                                 ),
@@ -378,7 +404,7 @@ class _MainPageState extends State<MainPage> with RouteAware {
                               children: <Widget>[
                                 new RawMaterialButton(
                                   onPressed: () {
-
+                                    _updateRate(7);
                                   },
                                   child: new Text("7", style: new TextStyle(
                                       fontSize: 24.0,
@@ -392,7 +418,7 @@ class _MainPageState extends State<MainPage> with RouteAware {
                                 ),
                                 new RawMaterialButton(
                                   onPressed: () {
-
+                                      _updateRate(8);
                                   },
                                   child: new Text("8", style: new TextStyle(
                                       fontSize: 24.0,
@@ -406,7 +432,7 @@ class _MainPageState extends State<MainPage> with RouteAware {
                                 ),
                                 new RawMaterialButton(
                                   onPressed: () {
-
+                                    _updateRate(9);
                                   },
                                   child: new Text("9", style: new TextStyle(
                                       fontSize: 24.0,
@@ -433,7 +459,7 @@ class _MainPageState extends State<MainPage> with RouteAware {
                               children: <Widget>[
                                 new RawMaterialButton(
                                   onPressed: () {
-
+                                    _updateRate(4);
                                   },
                                   child: new Text("4", style: new TextStyle(
                                       fontSize: 24.0,
@@ -447,7 +473,7 @@ class _MainPageState extends State<MainPage> with RouteAware {
                                 ),
                                 new RawMaterialButton(
                                   onPressed: () {
-
+                                    _updateRate(5);
                                   },
                                   child: new Text("5", style: new TextStyle(
                                       fontSize: 24.0,
@@ -461,7 +487,7 @@ class _MainPageState extends State<MainPage> with RouteAware {
                                 ),
                                 new RawMaterialButton(
                                   onPressed: () {
-
+                                    _updateRate(6);
                                   },
                                   child: new Text("6", style: new TextStyle(
                                       fontSize: 24.0,
@@ -488,7 +514,7 @@ class _MainPageState extends State<MainPage> with RouteAware {
                               children: <Widget>[
                                 new RawMaterialButton(
                                   onPressed: () {
-
+                                    _updateRate(1);
                                   },
                                   child: new Text("1", style: new TextStyle(
                                       fontSize: 24.0,
@@ -502,7 +528,7 @@ class _MainPageState extends State<MainPage> with RouteAware {
                                 ),
                                 new RawMaterialButton(
                                   onPressed: () {
-
+                                    _updateRate(2);
                                   },
                                   child: new Text("2", style: new TextStyle(
                                       fontSize: 24.0,
@@ -516,7 +542,7 @@ class _MainPageState extends State<MainPage> with RouteAware {
                                 ),
                                 new RawMaterialButton(
                                   onPressed: () {
-
+                                    _updateRate(3);
                                   },
                                   child: new Text("3", style: new TextStyle(
                                       fontSize: 24.0,
@@ -557,7 +583,7 @@ class _MainPageState extends State<MainPage> with RouteAware {
                                 ),
                                 new RawMaterialButton(
                                   onPressed: () {
-
+                                    _updateRate(0);
                                   },
                                   child: new Text("0", style: new TextStyle(
                                       fontSize: 24.0,
