@@ -44,6 +44,7 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
 
   dynamic preferences = SharedPreferences;
 
+  var _isConvertionLoading = true;
   var _isRatesLoading = true;
   var _isSearchOpened = false;
 
@@ -52,12 +53,15 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
   var keyIndices = new List();
   var searchIndices = new List();
 
+  var convertion = new Convertion();
   var rates = new LinkedHashMap();
 
   void _initPreferences() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     if (!(preferences.getKeys().contains("currencyParam"))) {
       await preferences.setString("currencyParam", "USD");
+      await preferences.setString("fromParam", "USD");
+      await preferences.setString("toParam", "PHP");
       print("Successfully Initialized User Defaults");
     }
     else {
@@ -71,6 +75,16 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
   String _getCurrency() {
     final currencyParam = preferences.getString("currencyParam") ?? '';
     return this.rates[currencyParam]["flag"] + " " + currencyParam;
+  }
+
+  String _getFrom() {
+    final fromParam = preferences.getString("fromParam") ?? '';
+    return this.rates[fromParam]["flag"] + " " + fromParam;
+  }
+
+  String _getTo() {
+    final toParam = preferences.getString("toParam") ?? '';
+    return this.rates[toParam]["flag"] + " " + toParam;
   }
 
   String _getDate() {
@@ -101,12 +115,17 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
     }
   }
 
+  String _getRate() {
+    return (convertion.convertionRates[1]["symbol"].toString() + convertion.rate.toStringAsFixed(2));
+  }
+
   void _getConvertion() async {
     final response = await service.getConvertion();
     if (response is Convertion) {
-      print(response.convertionRates[0]["flag"] + " " + response.convertionRates[0]["definition"]);
-      print(response.convertionRates[1]["flag"] + " " + response.convertionRates[1]["definition"]);
-      print(response.convertionRates[1]["symbol"].toString() + response.rate.toString());
+      setState(() {
+        this.convertion = response;
+        _isConvertionLoading = false;
+      });
     }
     else if (response is ApiError) {
       _showDialog("Error", response.error);
@@ -142,8 +161,10 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
   @override
   void afterFirstLayout(BuildContext context) {
     setState(() {
+      _isConvertionLoading = true;
       _isRatesLoading = true;
     });
+    _getConvertion();
     _getRates();
   }
 
@@ -166,8 +187,10 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
   @override
   void didPopNext() {
     setState(() {
+      _isConvertionLoading = true;
       _isRatesLoading = true;
     });
+    _getConvertion();
     _getRates();
   }
 
@@ -199,15 +222,19 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
             new IconButton(icon: new Icon(Icons.refresh),
             onPressed: () {
               setState(() {
+                _isConvertionLoading = true;
                 _isRatesLoading = true;
               });
+              _getConvertion();
               _getRates();
             },)
           ],
         ),
         body: TabBarView(
           children: [
-            new Column(
+            _isConvertionLoading ?  new Center(
+                child: new CircularProgressIndicator(),
+            ) : new Column(
               children: <Widget>[
                 new Padding(
                   padding: new EdgeInsets.fromLTRB(24.0, 24.0, 24.0, 0.0),
@@ -237,7 +264,7 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                   children: <Widget>[
-                                    new Text("🇺🇸 USD", style: new TextStyle(
+                                    new Text(_getFrom(), style: new TextStyle(
                                         fontSize: 17.0,
                                       ),
                                     ),
@@ -250,7 +277,7 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
                                     ),
                                   ],
                                 ),
-                                new Text("\$1,000", style: new TextStyle(
+                                new Text("\$1", style: new TextStyle(
                                     fontSize: 17.0,
                                   ),
                                 ),
@@ -290,7 +317,7 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                   children: <Widget>[
-                                    new Text("🇵🇭 PHP", style: new TextStyle(
+                                    new Text(_getTo(), style: new TextStyle(
                                         fontSize: 17.0,
                                       ),
                                     ),
@@ -303,7 +330,7 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
                                     ),
                                   ],
                                 ),
-                                new Text("₱53,980", style: new TextStyle(
+                                new Text(_getRate(), style: new TextStyle(
                                     fontSize: 17.0,
                                   ),
                                 ),

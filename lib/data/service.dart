@@ -12,9 +12,6 @@ class Service {
   String url = "https://v3.exchangerate-api.com/";
   String apiKey = "defff1f9da263b5ebd3017ac";
 
-  String fromParam = "";
-  String toParam = "";
-
   String get rates {
     return url + "bulk/" + apiKey + "/";
   }
@@ -46,6 +43,10 @@ class Service {
   }
 
   dynamic getConvertion() async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    final fromParam = preferences.getString("fromParam") ?? '';
+    final toParam = preferences.getString("toParam") ?? '';
+
     var url = convertion + fromParam + "/" + toParam;
     final response = await http.get(url);
     final map = json.decode(response.body);
