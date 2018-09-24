@@ -715,7 +715,7 @@ class _MainPageState extends State<MainPage> with RouteAware {
                                   searchIndices = this.keyIndices;
                                 }
                                 else {
-                                  searchIndices = keyIndices.where((item) => item.toString().contains(text.toUpperCase())).toList();
+                                  searchIndices = keyIndices.where((item) => item.toString().contains(text.trim().toUpperCase())).toList();
                                 }
                                 setState(() {
                                   this.searchIndices = searchIndices;

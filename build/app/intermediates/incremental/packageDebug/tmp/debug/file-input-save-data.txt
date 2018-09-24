@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Mon Sep 24 21:24:44 PHT 2018
+#Mon Sep 24 22:06:19 PHT 2018
 60.set=ASSET
 52.set=ASSET
 53.base=/Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/build/app/intermediates/assets/debug
