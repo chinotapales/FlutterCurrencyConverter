@@ -186,7 +186,10 @@ class _SelectCurrencyState extends State<SelectCurrencyPage> {
                                           new Text(searchIndices[index]),
                                         ],
                                       ),
-                                      new Text(rate["definition"]),
+                                      new Text(rate["definition"], style: new TextStyle(
+                                          fontSize: 12.0,
+                                        ),
+                                      ),
                                     ],
                                   ),
                                   new Divider(),
