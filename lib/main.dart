@@ -157,7 +157,7 @@ class _MainPageState extends State<MainPage> with RouteAware {
   }
 
   void _updateRate(int value) {
-    if (!_isKeyEntered && value != 1 && value != 0) {
+    if (!_isKeyEntered && currentValue == 1 && value != 0) {
       setState(() {
         this.currentValue = value;
         _isKeyEntered = true;                               
@@ -167,7 +167,23 @@ class _MainPageState extends State<MainPage> with RouteAware {
       var rateString = currentValue.toString();
       rateString = rateString += value.toString();
       setState(() {
-        this.currentValue = int.parse(rateString);                                
+        this.currentValue = int.parse(rateString);
+        _isKeyEntered = true;                                   
+      });
+    }
+  }
+
+  void _removeRate() {
+    if (_isKeyEntered) {
+      var rateString = currentValue.toString();
+      rateString = rateString.substring(0, rateString.length - 1);
+      setState(() {
+        if (rateString == "") {
+          this.currentValue = 1;
+        }
+        else {
+          this.currentValue = int.parse(rateString);
+        }                              
       });
     }
   }
@@ -597,7 +613,7 @@ class _MainPageState extends State<MainPage> with RouteAware {
                                 ),
                                 new RawMaterialButton(
                                   onPressed: () {
-
+                                    _removeRate();
                                   },
                                   child: new Icon(
                                     Icons.backspace,
