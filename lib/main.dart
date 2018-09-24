@@ -356,7 +356,7 @@ class _MainPageState extends State<MainPage> with RouteAware {
                                   },
                                 ),
                                 new Container(
-                                  width: 192.0,
+                                  width: 140.0,
                                   height: 0.5,
                                   color: Color.fromARGB(30, 0, 0, 0),
                                 )
