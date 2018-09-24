@@ -72,6 +72,12 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
     });
   }
 
+  void _swapParams() async {
+    await preferences.setString("fromParam", convertion.to);
+    await preferences.setString("toParam", convertion.from);
+    _getConvertion();
+  }
+
   String _getCurrency() {
     final currencyParam = preferences.getString("currencyParam") ?? '';
     return this.rates[currencyParam]["flag"] + " " + currencyParam;
@@ -115,7 +121,11 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
     }
   }
 
-  String _getRate() {
+  String _getFromSymbol() {
+    return convertion.convertionRates[0]["symbol"].toString();
+  }
+
+  String _getToRate() {
     return (convertion.convertionRates[1]["symbol"].toString() + convertion.rate.toStringAsFixed(2));
   }
 
@@ -277,7 +287,7 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
                                     ),
                                   ],
                                 ),
-                                new Text("\$1", style: new TextStyle(
+                                new Text(_getFromSymbol() + "1", style: new TextStyle(
                                     fontSize: 17.0,
                                   ),
                                 ),
@@ -296,7 +306,10 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
                                   child: new Icon(Icons.swap_vert),
                                   mini: true,
                                   onPressed: () {
-
+                                    setState(() {
+                                      _isConvertionLoading = true;
+                                    });
+                                    _swapParams();
                                   },
                                 ),
                                 new Container(
@@ -330,7 +343,7 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
                                     ),
                                   ],
                                 ),
-                                new Text(_getRate(), style: new TextStyle(
+                                new Text(_getToRate(), style: new TextStyle(
                                     fontSize: 17.0,
                                   ),
                                 ),
