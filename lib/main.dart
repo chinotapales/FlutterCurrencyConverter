@@ -143,8 +143,8 @@ class _MainPageState extends State<MainPage> with RouteAware {
 
     var toRate = this.currentValue * this.convertedValue;
 
-    if (toRate.toString().length > 11) {
-      toRate = double.parse(toRate.toString().substring(0, 11));
+    if (toRate.toString().length > 13) {
+      toRate = double.parse(toRate.toString().substring(0, 13));
     }
 
     var convertedRate = (convertion.convertionRates[1]["symbol"].toString() + toRate.toStringAsFixed(2));
