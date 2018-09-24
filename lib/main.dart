@@ -135,7 +135,14 @@ class _MainPageState extends State<MainPage> with RouteAware {
 
   String _getToRate() {
     var toRate = this.currentValue * this.convertedValue;
-    return (convertion.convertionRates[1]["symbol"].toString() + toRate.toStringAsFixed(2));
+
+    if (toRate.toString().length > 13) {
+      toRate = double.parse(toRate.toString().substring(0, 13));
+    }
+
+    var convertedRate = (convertion.convertionRates[1]["symbol"].toString() + toRate.toStringAsFixed(2));
+
+    return convertedRate;
   }
 
   void _getConvertion() async {
@@ -166,6 +173,11 @@ class _MainPageState extends State<MainPage> with RouteAware {
     else {
       var rateString = currentValue.toString();
       rateString = rateString += value.toString();
+
+      if (rateString.length > 12) {
+        rateString = rateString.substring(0, 12);
+      }
+
       setState(() {
         this.currentValue = int.parse(rateString);
         _isKeyEntered = true;                                   
