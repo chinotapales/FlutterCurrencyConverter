@@ -171,7 +171,7 @@ class Rates {
     rates['NOK'] = new Map.from({'symbol': 'kr', 'flag': '🇳🇴', 'definition': "Norwegian Krone", 'value': nok});
     rates['NZD'] = new Map.from({'symbol': '\$', 'flag': '🇳🇿', 'definition': "New Zealand Dollar", 'value': nzd});
     rates['OMR'] = new Map.from({'symbol': '﷼', 'flag': '🇴🇲', 'definition': "Omani Rial", 'value': omr});
-    rates['PAB'] = new Map.from({'symbol': 'B/.', 'flag': '🇲🇽', 'definition': "Panamanian Balboa", 'value': pab});
+    rates['PAB'] = new Map.from({'symbol': 'B/.', 'flag': '🇵🇦', 'definition': "Panamanian Balboa", 'value': pab});
     rates['PEN'] = new Map.from({'symbol': 'S/', 'flag': '🇵🇪', 'definition': "Peruvian Sol", 'value': pen});
     rates['PGK'] = new Map.from({'symbol': 'K', 'flag': '🇵🇬', 'definition': "Papua New Guinean Kina", 'value': pgk});
     rates['PHP'] = new Map.from({'symbol': '₱', 'flag': '🇵🇭', 'definition': "Philippine Peso", 'value': php});
@@ -182,7 +182,7 @@ class Rates {
     rates['RON'] = new Map.from({'symbol': 'lei', 'flag': '🇷🇴', 'definition': "Romanian Leu", 'value': ron});
     rates['RSD'] = new Map.from({'symbol': 'din', 'flag': '🇷🇸', 'definition': "Serbian Dinar", 'value': rsd});
     rates['RUB'] = new Map.from({'symbol': '‎₽', 'flag': '🇷🇺', 'definition': "Russian Ruble", 'value': rub});
-    rates['SAR'] = new Map.from({'symbol': '\$', 'flag': '🇳🇿', 'definition': "Saudi Riyal", 'value': sar});
+    rates['SAR'] = new Map.from({'symbol': '\$', 'flag': '🇸🇦', 'definition': "Saudi Riyal", 'value': sar});
     rates['SCR'] = new Map.from({'symbol': 'SR', 'flag': '🇸🇨', 'definition': "Seychellois Rupee", 'value': scr});
     rates['SEK'] = new Map.from({'symbol': 'kr', 'flag': '🇸🇪', 'definition': "Swedish Krona", 'value': sek});
     rates['SGD'] = new Map.from({'symbol': '\$', 'flag': '🇸🇬', 'definition': "Singapore Dollar", 'value': sgd});

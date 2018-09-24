@@ -133,7 +133,17 @@ class _MainPageState extends State<MainPage> with RouteAware {
     return convertion.convertionRates[0]["symbol"].toString();
   }
 
+  String _getFormattedCurrent() {
+    RegExp reg = new RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))');
+    Function mathFunc = (Match match) => '${match[1]},';
+
+    return currentValue.toString().replaceAllMapped(reg, mathFunc);
+  }
+
   String _getToRate() {
+    RegExp reg = new RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))');
+    Function mathFunc = (Match match) => '${match[1]},';
+
     var toRate = this.currentValue * this.convertedValue;
 
     if (toRate.toString().length > 11) {
@@ -142,7 +152,7 @@ class _MainPageState extends State<MainPage> with RouteAware {
 
     var convertedRate = (convertion.convertionRates[1]["symbol"].toString() + toRate.toStringAsFixed(2));
 
-    return convertedRate;
+    return convertedRate.replaceAllMapped(reg, mathFunc);
   }
 
   void _getConvertion() async {
@@ -343,7 +353,7 @@ class _MainPageState extends State<MainPage> with RouteAware {
                                     ],
                                   ),
                                 ),
-                                new Text(_getFromSymbol() + currentValue.toString(), style: new TextStyle(
+                                new Text(_getFromSymbol() + _getFormattedCurrent(), style: new TextStyle(
                                     fontSize: 17.0,
                                   ),
                                 ),
