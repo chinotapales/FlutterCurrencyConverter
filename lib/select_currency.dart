@@ -33,9 +33,18 @@ class _SelectCurrencyState extends State<SelectCurrencyPage> {
   }
 
   void _setPreferences(String index) async {
-    await preferences.setString("currencyParam", index);
-
-    print("Successfully Set " + index + " as currencyParam");
+    if (navIndex == 0) {
+      await preferences.setString("currencyParam", index);
+      print("Successfully Set " + index + " as currencyParam");
+    }
+    else if (navIndex == 1) {
+      await preferences.setString("fromParam", index);
+      print("Successfully Set " + index + " as fromParam");
+    }
+    else if (navIndex == 2) {
+      await preferences.setString("toParam", index);
+      print("Successfully Set " + index + " as toParam");
+    }
 
     setState(() {    
       this.preferences = preferences;
@@ -156,10 +165,8 @@ class _SelectCurrencyState extends State<SelectCurrencyPage> {
                             height: 42.0,
                             child: new GestureDetector(
                               onTapUp: (tapDetails) {
-                                if (navIndex == 0) {
-                                  _setPreferences(searchIndices[index]);
-                                  Navigator.pop(context);
-                                }
+                                _setPreferences(searchIndices[index]);
+                                Navigator.pop(context);
                               },
                               child: new Column(
                                 children: <Widget>[

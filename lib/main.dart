@@ -58,7 +58,7 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
 
   void _initPreferences() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
-    if (!(preferences.getKeys().contains("currencyParam"))) {
+    if (!(preferences.getKeys().contains("currencyParam")) && !(preferences.getKeys().contains("fromParam")) && !(preferences.getKeys().contains("toParam"))) {
       await preferences.setString("currencyParam", "USD");
       await preferences.setString("fromParam", "USD");
       await preferences.setString("toParam", "PHP");
@@ -270,22 +270,30 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
                               crossAxisAlignment: CrossAxisAlignment.center,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
-                                new Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                  children: <Widget>[
-                                    new Text(_getFrom(), style: new TextStyle(
-                                        fontSize: 17.0,
+                                new GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => SelectCurrencyPage(this.keyIndices, this.rates, 1)),
+                                    );
+                                  },
+                                  child: new Row(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                    children: <Widget>[
+                                      new Text(_getFrom(), style: new TextStyle(
+                                          fontSize: 17.0,
+                                        ),
                                       ),
-                                    ),
-                                    new Container(
-                                      width: 4.0,
-                                    ),
-                                    new Icon(Icons.arrow_forward_ios,
-                                      color: Colors.grey,
-                                      size: 13.0,
-                                    ),
-                                  ],
+                                      new Container(
+                                        width: 4.0,
+                                      ),
+                                      new Icon(Icons.arrow_forward_ios,
+                                        color: Colors.grey,
+                                        size: 13.0,
+                                      ),
+                                    ],
+                                  ),
                                 ),
                                 new Text(_getFromSymbol() + "1", style: new TextStyle(
                                     fontSize: 17.0,
@@ -326,22 +334,30 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
                               crossAxisAlignment: CrossAxisAlignment.center,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
-                                new Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                  children: <Widget>[
-                                    new Text(_getTo(), style: new TextStyle(
-                                        fontSize: 17.0,
+                                new GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => SelectCurrencyPage(this.keyIndices, this.rates, 2)),
+                                    );
+                                  },
+                                  child: new Row(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                    children: <Widget>[
+                                      new Text(_getTo(), style: new TextStyle(
+                                          fontSize: 17.0,
+                                        ),
                                       ),
-                                    ),
-                                    new Container(
-                                      width: 4.0,
-                                    ),
-                                    new Icon(Icons.arrow_forward_ios,
-                                      color: Colors.grey,
-                                      size: 13.0,
-                                    ),
-                                  ],
+                                      new Container(
+                                        width: 4.0,
+                                      ),
+                                      new Icon(Icons.arrow_forward_ios,
+                                        color: Colors.grey,
+                                        size: 13.0,
+                                      ),
+                                    ],
+                                  ),
                                 ),
                                 new Text(_getToRate(), style: new TextStyle(
                                     fontSize: 17.0,
