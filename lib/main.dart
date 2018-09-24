@@ -364,33 +364,43 @@ class _MainPageState extends State<MainPage> with RouteAware {
                               ],
                             ),
                             new Container(
-                              height: 6.0,
+                              height: 4.0,
                             ),
                             new Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
-                                new FloatingActionButton(
-                                  elevation: 4.0,
-                                  foregroundColor: Colors.white,
-                                  child: new Icon(Icons.swap_vert),
-                                  mini: true,
+                                new Container(
+                                  width: 80.0,
+                                  height: 0.5,
+                                  color: Color.fromARGB(30, 0, 0, 0),
+                                ),
+                                new RawMaterialButton(
                                   onPressed: () {
                                     setState(() {
                                       _isConvertionLoading = true;
                                     });
                                     _swapParams();
                                   },
+                                  child: new Icon(
+                                    Icons.swap_vert,
+                                    size: 20.0,
+                                    color: Colors.white,
+                                  ),
+                                  shape: new CircleBorder(),
+                                  elevation: 4.0,
+                                  fillColor: Color.fromRGBO(75, 214, 145, 1.0),
+                                  padding: new EdgeInsets.all(8.0),
                                 ),
                                 new Container(
-                                  width: 140.0,
+                                  width: 80.0,
                                   height: 0.5,
                                   color: Color.fromARGB(30, 0, 0, 0),
                                 )
                               ],
                             ),
                             new Container(
-                              height: 6.0,
+                              height: 4.0,
                             ),
                             new Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
