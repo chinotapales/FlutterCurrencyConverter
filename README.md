@@ -8,11 +8,11 @@ Features:
 
 View Exchange Rates Updated every Hour
 
-- Input the amount you want to convert
+- Input the Amount you want to Convert
 
 View and Search Exchange Rates
 
-- Look over 99 different exchange rates
+- Look over 99 Different Exchange Rates
 
 Credits:
 
