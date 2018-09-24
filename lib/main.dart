@@ -83,14 +83,18 @@ class _MainPageState extends State<MainPage> with RouteAware {
     _getRates();
   }
 
+  String _getImageName(String index) {
+    return "assets/" + index + ".png";
+  }
+
   String _getCurrency() {
     final currencyParam = preferences.getString("currencyParam") ?? '';
-    return this.rates[currencyParam]["flag"] + " " + currencyParam;
+    return currencyParam;
   }
 
   String _getTo() {
     final toParam = preferences.getString("toParam") ?? '';
-    return this.rates[toParam]["flag"] + " " + toParam;
+    return toParam;
   }
 
   String _getDate() {
@@ -329,9 +333,16 @@ class _MainPageState extends State<MainPage> with RouteAware {
                                     );
                                   },
                                   child: new Row(
-                                    crossAxisAlignment: CrossAxisAlignment.center,
                                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                     children: <Widget>[
+                                      new Image(image: new AssetImage(
+                                        _getImageName(_getCurrency())),
+                                        width: 24.0, 
+                                        height:24.0
+                                      ),
+                                      new Container(
+                                        width: 6.0,
+                                      ),
                                       new Text(_getCurrency(), style: new TextStyle(
                                           fontSize: 17.0,
                                         ),
@@ -341,7 +352,7 @@ class _MainPageState extends State<MainPage> with RouteAware {
                                       ),
                                       new Icon(Icons.arrow_forward_ios,
                                         color: Colors.grey,
-                                        size: 13.0,
+                                        size: 14.0,
                                       ),
                                     ],
                                   ),
@@ -393,9 +404,16 @@ class _MainPageState extends State<MainPage> with RouteAware {
                                     );
                                   },
                                   child: new Row(
-                                    crossAxisAlignment: CrossAxisAlignment.center,
                                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                     children: <Widget>[
+                                      new Image(image: new AssetImage(
+                                        _getImageName(_getTo())), 
+                                        width: 24.0, 
+                                        height: 24.0
+                                      ),
+                                      new Container(
+                                        width: 6.0,
+                                      ),
                                       new Text(_getTo(), style: new TextStyle(
                                           fontSize: 17.0,
                                         ),
@@ -737,9 +755,22 @@ class _MainPageState extends State<MainPage> with RouteAware {
                           ),
                           child: new Center(
                             child: new Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
-                                new Text(_getCurrency()),
+                                new Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  children: <Widget>[
+                                    new Image(image: new AssetImage(
+                                      _getImageName(_getCurrency())),
+                                      width: 18.0,
+                                      height: 18.0),
+                                    new Container(
+                                      width: 6.0,
+                                    ),
+                                    new Text(_getCurrency()),
+                                  ],
+                                ),
                                 new Icon(Icons.arrow_forward_ios,
                                   color: Colors.grey,
                                   size: 14.0,
@@ -782,9 +813,22 @@ class _MainPageState extends State<MainPage> with RouteAware {
                                   child: new Column(
                                     children: <Widget>[
                                       new Row(
+                                        crossAxisAlignment: CrossAxisAlignment.center,
                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: <Widget>[
-                                          new Text(rate["flag"] + " " + searchIndices[index]),
+                                          new Row(
+                                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                            children: <Widget>[
+                                              new Image(image: new AssetImage(
+                                                _getImageName(searchIndices[index])),
+                                                width: 18.0,
+                                                height: 18.0),
+                                              new Container(
+                                                width: 6.0,
+                                              ),
+                                              new Text(searchIndices[index]),
+                                            ],
+                                          ),
                                           new Text(rate["symbol"] + rate["value"].toStringAsFixed(2)),
                                         ],
                                       ),
