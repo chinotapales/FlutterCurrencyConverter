@@ -191,7 +191,7 @@ class _MainPageState extends State<MainPage> with RouteAware {
       rateString = rateString.substring(0, rateString.length - 1);
       setState(() {
         if (rateString == "") {
-          this.currentValue = 1;
+          this.currentValue = 0;
         }
         else {
           this.currentValue = int.parse(rateString);
