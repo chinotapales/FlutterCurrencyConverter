@@ -584,17 +584,13 @@ class _MainPageState extends State<MainPage> with RouteAware {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
                                 new RawMaterialButton(
-                                  onPressed: () {
-
-                                  },
-                                  child: new Text(".", style: new TextStyle(
+                                  child: new Text("", style: new TextStyle(
                                       fontSize: 24.0,
-                                      color: Color.fromARGB(153, 0, 0, 0),
                                     ),
                                   ),
                                   shape: new CircleBorder(),
-                                  elevation: 4.0,
-                                  fillColor: Colors.white,
+                                  elevation: 0.0,
+                                  fillColor: Colors.transparent,
                                   padding: new EdgeInsets.fromLTRB(24.0, 24.0, 24.0, 16.0),
                                 ),
                                 new RawMaterialButton(
