@@ -26,7 +26,6 @@ dependencies:
   intl: ^0.15.7
 
   #ui
-  after_layout: ^1.0.4
   cupertino_icons: ^0.1.2
 
 dev_dependencies:

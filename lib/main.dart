@@ -5,7 +5,6 @@ import 'package:flutter_currency_conversion/select_currency.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:intl/intl.dart';
-import 'package:after_layout/after_layout.dart';
 import 'dart:collection';
 
 import 'package:flutter_currency_conversion/data/service.dart';
@@ -40,7 +39,7 @@ class MainPage extends StatefulWidget {
   _MainPageState createState() => new _MainPageState();
 }
 
-class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, RouteAware {
+class _MainPageState extends State<MainPage> with RouteAware {
 
   dynamic preferences = SharedPreferences;
 
@@ -69,6 +68,9 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
     }
     setState(() {    
       this.preferences = preferences;
+      _isRatesLoading = true;
+      _isConvertionLoading = true;
+      _getRates();
     });
   }
 
@@ -168,15 +170,6 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
   void initState() {
     super.initState();
     _initPreferences();
-  }
-
-  @override
-  void afterFirstLayout(BuildContext context) {
-    setState(() {
-      _isRatesLoading = true;
-      _isConvertionLoading = true;
-    });
-    _getRates();
   }
 
   @override
@@ -371,7 +364,7 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
                   ),
                 ),
                 new Padding(
-                  padding: new EdgeInsets.fromLTRB(24.0, 28.0, 24.0, 0.0),
+                  padding: new EdgeInsets.fromLTRB(24.0, 24.0, 24.0, 0.0),
                   child: new Column(
                     children: <Widget>[
                       new Row(
@@ -383,7 +376,7 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
 
                             },
                             child: new Text("7", style: new TextStyle(
-                                fontSize: 28.0,
+                                fontSize: 24.0,
                                 color: Color.fromARGB(153, 0, 0, 0),
                               ),
                             ),
@@ -397,7 +390,7 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
 
                             },
                             child: new Text("8", style: new TextStyle(
-                                fontSize: 28.0,
+                                fontSize: 24.0,
                                 color: Color.fromARGB(153, 0, 0, 0),
                               ),
                             ),
@@ -411,7 +404,7 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
 
                             },
                             child: new Text("9", style: new TextStyle(
-                                fontSize: 28.0,
+                                fontSize: 24.0,
                                 color: Color.fromARGB(153, 0, 0, 0),
                               ),
                             ),
@@ -426,7 +419,7 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
                   )
                 ),
                 new Padding(
-                  padding: new EdgeInsets.fromLTRB(24.0, 28.0, 24.0, 0.0),
+                  padding: new EdgeInsets.fromLTRB(24.0, 20.0, 24.0, 0.0),
                   child: new Column(
                     children: <Widget>[
                       new Row(
@@ -438,7 +431,7 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
 
                             },
                             child: new Text("4", style: new TextStyle(
-                                fontSize: 28.0,
+                                fontSize: 24.0,
                                 color: Color.fromARGB(153, 0, 0, 0),
                               ),
                             ),
@@ -452,7 +445,7 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
 
                             },
                             child: new Text("5", style: new TextStyle(
-                                fontSize: 28.0,
+                                fontSize: 24.0,
                                 color: Color.fromARGB(153, 0, 0, 0),
                               ),
                             ),
@@ -466,7 +459,7 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
 
                             },
                             child: new Text("6", style: new TextStyle(
-                                fontSize: 28.0,
+                                fontSize: 24.0,
                                 color: Color.fromARGB(153, 0, 0, 0),
                               ),
                             ),
@@ -481,7 +474,7 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
                   )
                 ),
                 new Padding(
-                  padding: new EdgeInsets.fromLTRB(24.0, 28.0, 24.0, 0.0),
+                  padding: new EdgeInsets.fromLTRB(24.0, 20.0, 24.0, 0.0),
                   child: new Column(
                     children: <Widget>[
                       new Row(
@@ -493,7 +486,7 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
 
                             },
                             child: new Text("1", style: new TextStyle(
-                                fontSize: 28.0,
+                                fontSize: 24.0,
                                 color: Color.fromARGB(153, 0, 0, 0),
                               ),
                             ),
@@ -507,7 +500,7 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
 
                             },
                             child: new Text("2", style: new TextStyle(
-                                fontSize: 28.0,
+                                fontSize: 24.0,
                                 color: Color.fromARGB(153, 0, 0, 0),
                               ),
                             ),
@@ -521,7 +514,7 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
 
                             },
                             child: new Text("3", style: new TextStyle(
-                                fontSize: 28.0,
+                                fontSize: 24.0,
                                 color: Color.fromARGB(153, 0, 0, 0),
                               ),
                             ),
@@ -536,7 +529,7 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
                   )
                 ),
                 new Padding(
-                  padding: new EdgeInsets.fromLTRB(24.0, 28.0, 24.0, 0.0),
+                  padding: new EdgeInsets.fromLTRB(24.0, 20.0, 24.0, 0.0),
                   child: new Column(
                     children: <Widget>[
                       new Row(
@@ -548,7 +541,7 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
 
                             },
                             child: new Text(".", style: new TextStyle(
-                                fontSize: 28.0,
+                                fontSize: 24.0,
                                 color: Color.fromARGB(153, 0, 0, 0),
                               ),
                             ),
@@ -562,7 +555,7 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
 
                             },
                             child: new Text("0", style: new TextStyle(
-                                fontSize: 28.0,
+                                fontSize: 24.0,
                                 color: Color.fromARGB(153, 0, 0, 0),
                               ),
                             ),
@@ -577,7 +570,7 @@ class _MainPageState extends State<MainPage> with AfterLayoutMixin<MainPage>, Ro
                             },
                             child: new Icon(
                               Icons.backspace,
-                              size: 28.0,
+                              size: 24.0,
                               color: Colors.white,
                             ),
                             shape: new CircleBorder(),
