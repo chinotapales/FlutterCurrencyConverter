@@ -35,9 +35,7 @@ class _SelectCurrencyState extends State<SelectCurrencyPage> {
   void _setPreferences(String index) async {
     if (navIndex == 0) {
       await preferences.setString("currencyParam", index);
-      await preferences.setString("fromParam", index);
       print("Successfully Set " + index + " as currencyParam");
-      print("Successfully Set " + index + " as fromParam");
     }
     else if (navIndex == 1) {
       await preferences.setString("toParam", index);

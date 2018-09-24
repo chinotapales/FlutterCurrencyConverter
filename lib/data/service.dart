@@ -44,10 +44,10 @@ class Service {
 
   dynamic getConvertion() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
-    final fromParam = preferences.getString("fromParam") ?? '';
+    final currencyParam = preferences.getString("currencyParam") ?? '';
     final toParam = preferences.getString("toParam") ?? '';
 
-    var url = convertion + fromParam + "/" + toParam;
+    var url = convertion + currencyParam + "/" + toParam;
     final response = await http.get(url);
     final map = json.decode(response.body);
 

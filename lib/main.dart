@@ -61,9 +61,8 @@ class _MainPageState extends State<MainPage> with RouteAware {
 
   void _initPreferences() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
-    if (!(preferences.getKeys().contains("currencyParam")) && !(preferences.getKeys().contains("fromParam")) && !(preferences.getKeys().contains("toParam"))) {
+    if (!(preferences.getKeys().contains("currencyParam")) && !(preferences.getKeys().contains("toParam"))) {
       await preferences.setString("currencyParam", "USD");
-      await preferences.setString("fromParam", "USD");
       await preferences.setString("toParam", "PHP");
       print("Successfully Initialized User Defaults");
     }
@@ -80,7 +79,6 @@ class _MainPageState extends State<MainPage> with RouteAware {
 
   void _swapParams() async {
     await preferences.setString("currencyParam", convertion.to);
-    await preferences.setString("fromParam", convertion.to);
     await preferences.setString("toParam", convertion.from);
     _getRates();
   }
@@ -88,11 +86,6 @@ class _MainPageState extends State<MainPage> with RouteAware {
   String _getCurrency() {
     final currencyParam = preferences.getString("currencyParam") ?? '';
     return this.rates[currencyParam]["flag"] + " " + currencyParam;
-  }
-
-  String _getFrom() {
-    final fromParam = preferences.getString("fromParam") ?? '';
-    return this.rates[fromParam]["flag"] + " " + fromParam;
   }
 
   String _getTo() {
@@ -339,7 +332,7 @@ class _MainPageState extends State<MainPage> with RouteAware {
                                     crossAxisAlignment: CrossAxisAlignment.center,
                                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                     children: <Widget>[
-                                      new Text(_getFrom(), style: new TextStyle(
+                                      new Text(_getCurrency(), style: new TextStyle(
                                           fontSize: 17.0,
                                         ),
                                       ),
