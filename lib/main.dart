@@ -453,6 +453,7 @@ class _MainPageState extends State<MainPage> with RouteAware {
                 new Expanded(
                   flex: 1,
                   child: new ListView(
+                    physics: new ClampingScrollPhysics(),
                     children: <Widget>[
                       new Padding(
                         padding: new EdgeInsets.fromLTRB(24.0, 0.0, 24.0, 0.0),
