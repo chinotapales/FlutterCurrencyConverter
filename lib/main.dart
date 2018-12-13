@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'package:flutter_currency_conversion/select_currency.dart';
 
@@ -20,6 +21,10 @@ class FlutterCurrencyConverter extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+        DeviceOrientation.portraitUp,
+        DeviceOrientation.portraitDown,
+      ]);
     return new MaterialApp(
       theme: ThemeData(
         primaryColor: Colors.white,

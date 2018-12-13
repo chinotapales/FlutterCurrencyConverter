@@ -2,9 +2,9 @@
 FLUTTER_ROOT=/Users/chinotapales/flutter
 FLUTTER_APPLICATION_PATH=/Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion
 FLUTTER_TARGET=/Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/lib/main.dart
-FLUTTER_BUILD_MODE=debug
 FLUTTER_BUILD_DIR=build
 SYMROOT=${SOURCE_ROOT}/../build/ios
 FLUTTER_FRAMEWORK_DIR=/Users/chinotapales/flutter/bin/cache/artifacts/engine/ios
 FLUTTER_BUILD_NAME=1.0.0
 FLUTTER_BUILD_NUMBER=1
+TRACK_WIDGET_CREATION=true
