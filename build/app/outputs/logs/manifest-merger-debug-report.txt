@@ -29,7 +29,7 @@ ADDED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conve
 application
 ADDED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:15:5-38:19
 	android:label
-		ADDED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:17:9-52
+		ADDED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:17:9-41
 	android:icon
 		ADDED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:18:9-43
 	android:name

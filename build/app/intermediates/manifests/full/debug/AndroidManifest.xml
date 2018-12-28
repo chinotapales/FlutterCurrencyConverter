@@ -25,7 +25,7 @@
         android:name="io.flutter.app.FlutterApplication"
         android:debuggable="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="flutter_currency_conversion" >
+        android:label="Flutter Currency" >
         <activity
             android:name="com.example.fluttercurrencyconversion.MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density"
