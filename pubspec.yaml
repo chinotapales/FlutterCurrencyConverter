@@ -19,6 +19,9 @@ dependencies:
   #dateTime
   intl: ^0.15.7
 
+  #icons
+  flutter_launcher_icons: "^0.6.1"
+
   #ui
   cupertino_icons: ^0.1.2
 
@@ -34,3 +37,8 @@ flutter:
     - family: Rockwell
       fonts:
         - asset: fonts/Rockwell.ttc
+        
+flutter_icons:
+  image_path: "icon/icon.png" 
+  android: true
+  ios: true
