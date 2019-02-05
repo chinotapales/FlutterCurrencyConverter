@@ -1,82 +1,85 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:1:1-39:12
-INJECTED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:1:1-39:12
-INJECTED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:1:1-39:12
-INJECTED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:1:1-39:12
-MERGED from [:shared_preferences] /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/build/shared_preferences/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-7:12
-INJECTED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:1:1-39:12
-INJECTED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:1:1-39:12
-INJECTED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:1:1-39:12
+ADDED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:1:1-39:12
+INJECTED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:1:1-39:12
+INJECTED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:1:1-39:12
+INJECTED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:1:1-39:12
+MERGED from [com.android.support:multidex:1.0.2] /Users/chinotapales/.gradle/caches/transforms-1/files-1.1/multidex-1.0.2.aar/e332786d5b851f4539e9550ca98a6bac/AndroidManifest.xml:17:1-22:12
+MERGED from [:shared_preferences] /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/build/shared_preferences/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-7:12
+INJECTED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:1:1-39:12
+INJECTED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:1:1-39:12
+INJECTED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:1:1-39:12
 	package
-		ADDED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:2:5-52
-		INJECTED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:2:5-56
+		INJECTED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml
 	android:versionName
-		INJECTED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:1:1-39:12
-		INJECTED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:1:1-39:12
+		INJECTED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml
 	android:versionCode
-		INJECTED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:1:1-39:12
-		INJECTED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:1:1-39:12
+		INJECTED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml
 	xmlns:android
-		ADDED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:1:11-69
+		ADDED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:1:11-69
 uses-permission#android.permission.INTERNET
-ADDED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:8:5-66
+ADDED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:8:5-66
 	android:name
-		ADDED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:8:22-64
+		ADDED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:8:22-64
 application
-ADDED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:15:5-38:19
+ADDED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:15:5-38:19
 	android:label
-		ADDED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:17:9-41
+		ADDED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:17:9-41
 	android:icon
-		ADDED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:18:9-43
+		ADDED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:18:9-43
 	android:name
-		ADDED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:16:9-57
-activity#com.example.fluttercurrencyconversion.MainActivity
-ADDED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:19:9-37:20
+		ADDED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:16:9-57
+activity#com.suenostudios.fluttercurrencyconverter.MainActivity
+ADDED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:19:9-37:20
 	android:launchMode
-		ADDED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:21:13-43
+		ADDED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:21:13-43
 	android:hardwareAccelerated
-		ADDED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:24:13-47
+		ADDED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:24:13-47
 	android:windowSoftInputMode
-		ADDED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:25:13-55
+		ADDED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:25:13-55
 	android:configChanges
-		ADDED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:23:13-137
+		ADDED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:23:13-137
 	android:theme
-		ADDED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:22:13-47
+		ADDED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:22:13-47
 	android:name
-		ADDED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:20:13-41
+		ADDED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:20:13-41
 meta-data#io.flutter.app.android.SplashScreenUntilFirstFrame
-ADDED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:30:13-32:40
+ADDED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:30:13-32:40
 	android:value
-		ADDED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:32:17-37
+		ADDED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:32:17-37
 	android:name
-		ADDED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:31:17-82
+		ADDED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:31:17-82
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:33:13-36:29
+ADDED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:33:13-36:29
 action#android.intent.action.MAIN
-ADDED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:34:17-68
+ADDED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:34:17-68
 	android:name
-		ADDED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:34:25-66
+		ADDED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:34:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:35:17-76
+ADDED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:35:17-76
 	android:name
-		ADDED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:35:27-74
+		ADDED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:35:27-74
 uses-sdk
-INJECTED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml
-INJECTED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml
-MERGED from [:shared_preferences] /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/build/shared_preferences/intermediates/manifests/full/debug/AndroidManifest.xml:5:5-44
-MERGED from [:shared_preferences] /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/build/shared_preferences/intermediates/manifests/full/debug/AndroidManifest.xml:5:5-44
-INJECTED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml
-INJECTED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml
+INJECTED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml
+INJECTED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml
+MERGED from [com.android.support:multidex:1.0.2] /Users/chinotapales/.gradle/caches/transforms-1/files-1.1/multidex-1.0.2.aar/e332786d5b851f4539e9550ca98a6bac/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:multidex:1.0.2] /Users/chinotapales/.gradle/caches/transforms-1/files-1.1/multidex-1.0.2.aar/e332786d5b851f4539e9550ca98a6bac/AndroidManifest.xml:20:5-43
+MERGED from [:shared_preferences] /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/build/shared_preferences/intermediates/manifests/full/debug/AndroidManifest.xml:5:5-44
+MERGED from [:shared_preferences] /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/build/shared_preferences/intermediates/manifests/full/debug/AndroidManifest.xml:5:5-44
+INJECTED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml
+INJECTED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/chinotapales/Documents/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml
