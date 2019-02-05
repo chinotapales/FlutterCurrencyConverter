@@ -5,6 +5,8 @@ import 'package:flutter_currency_conversion/select_currency.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'package:flutter_device_type/flutter_device_type.dart';
+
 import 'package:intl/intl.dart';
 import 'dart:collection';
 
@@ -63,6 +65,30 @@ class _MainPageState extends State<MainPage> with RouteAware {
 
   var currentValue = 1;
   var convertedValue = 0.0;
+
+  EdgeInsets _getEdgeInsets() {
+    if (Device.get().isIos && Device.get().isTablet) {
+      return new EdgeInsets.fromLTRB(24.0, 36.0, 24.0, 0.0);
+    }
+    else if (Device.get().isTablet) {
+      return new EdgeInsets.fromLTRB(24.0, 36.0, 24.0, 0.0);
+    }
+    else {
+      return new EdgeInsets.fromLTRB(24.0, 20.0, 24.0, 0.0);
+    }
+  }
+
+  MainAxisAlignment _getAxisAlignment() {
+    if (Device.get().isIos && Device.get().isTablet) {
+      return MainAxisAlignment.spaceEvenly;
+    }
+    else if (Device.get().isTablet) {
+      return MainAxisAlignment.spaceEvenly;
+    }
+    else {
+      return MainAxisAlignment.spaceBetween;
+    }
+  }
 
   void _initPreferences() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
@@ -307,7 +333,7 @@ class _MainPageState extends State<MainPage> with RouteAware {
             new Column(
               children: <Widget>[
                 new Padding(
-                  padding: new EdgeInsets.all(24.0),
+                  padding: new EdgeInsets.fromLTRB(24.0, 24.0, 24.0, 0.0),
                   child: new Container(
                     color: Colors.transparent,
                     child: new Container(
@@ -461,12 +487,12 @@ class _MainPageState extends State<MainPage> with RouteAware {
                     physics: new ClampingScrollPhysics(),
                     children: <Widget>[
                       new Padding(
-                        padding: new EdgeInsets.fromLTRB(24.0, 0.0, 24.0, 0.0),
+                        padding: _getEdgeInsets(),
                         child: new Column(
                           children: <Widget>[
                             new Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: _getAxisAlignment(),
                               children: <Widget>[
                                 new RawMaterialButton(
                                   onPressed: () {
@@ -516,12 +542,12 @@ class _MainPageState extends State<MainPage> with RouteAware {
                         )
                       ),
                       new Padding(
-                        padding: new EdgeInsets.fromLTRB(24.0, 20.0, 24.0, 0.0),
+                        padding: _getEdgeInsets(),
                         child: new Column(
                           children: <Widget>[
                             new Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: _getAxisAlignment(),
                               children: <Widget>[
                                 new RawMaterialButton(
                                   onPressed: () {
@@ -571,12 +597,12 @@ class _MainPageState extends State<MainPage> with RouteAware {
                         )
                       ),
                       new Padding(
-                        padding: new EdgeInsets.fromLTRB(24.0, 20.0, 24.0, 0.0),
+                        padding: _getEdgeInsets(),
                         child: new Column(
                           children: <Widget>[
                             new Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: _getAxisAlignment(),
                               children: <Widget>[
                                 new RawMaterialButton(
                                   onPressed: () {
@@ -626,12 +652,12 @@ class _MainPageState extends State<MainPage> with RouteAware {
                         )
                       ),
                       new Padding(
-                        padding: new EdgeInsets.fromLTRB(24.0, 20.0, 24.0, 24.0),
+                        padding: _getEdgeInsets(),
                         child: new Column(
                           children: <Widget>[
                             new Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: _getAxisAlignment(),
                               children: <Widget>[
                                 new RawMaterialButton(
                                   child: new Text("", style: new TextStyle(

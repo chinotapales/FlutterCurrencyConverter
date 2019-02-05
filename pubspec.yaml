@@ -19,6 +19,9 @@ dependencies:
   #dateTime
   intl: ^0.15.7
 
+  #device
+  flutter_device_type: ^0.1.0
+
   #icons
   flutter_launcher_icons: "^0.6.1"
 
