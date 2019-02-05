@@ -28,6 +28,7 @@ class FlutterCurrencyConverter extends StatelessWidget {
         DeviceOrientation.portraitDown,
       ]);
     return new MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: Colors.white,
         accentColor: Color.fromRGBO(75, 214, 145, 1.0),

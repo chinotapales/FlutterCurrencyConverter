@@ -143,10 +143,10 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "${PODS_ROOT}/../.symlinks/flutter/ios-release/Flutter.framework"
+  install_framework "${PODS_ROOT}/../.symlinks/flutter/ios/Flutter.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "${PODS_ROOT}/../.symlinks/flutter/ios-release/Flutter.framework"
+  install_framework "${PODS_ROOT}/../.symlinks/flutter/ios/Flutter.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait
