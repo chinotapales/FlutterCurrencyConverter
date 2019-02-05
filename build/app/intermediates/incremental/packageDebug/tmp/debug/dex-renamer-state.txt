@@ -1,4 +1,0 @@
-#Tue Feb 05 20:56:02 GMT 2019
-base.0=/Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/build/app/intermediates/transforms/dexMerger/debug/0
-path.0=classes.dex
-renamed.0=classes.dex

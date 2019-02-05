@@ -26,15 +26,6 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
 
-    signingConfigs {
-        release {
-            keyAlias 'SuenoStudiosKey'
-            keyPassword 'YELLOWPANTHER'
-            storeFile file('/Users/chinotapales/Documents/Developer/AndroidKeystores/suenoStudios.keystore')
-            storePassword 'YELLOWPANTHER'
-        }
-    }
-
     compileSdkVersion 27
 
     lintOptions {
