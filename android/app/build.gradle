@@ -25,6 +25,16 @@ apply plugin: 'com.android.application'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
+
+    signingConfigs {
+        release {
+            keyAlias 'SuenoStudiosKey'
+            keyPassword 'YELLOWPANTHER'
+            storeFile file('/Users/chinotapales/Documents/Developer/AndroidKeystores/suenoStudios.keystore')
+            storePassword 'YELLOWPANTHER'
+        }
+    }
+
     compileSdkVersion 27
 
     lintOptions {
@@ -34,12 +44,11 @@ android {
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.suenostudios.fluttercurrencyconverter"
-        minSdkVersion 16
+        minSdkVersion 21
         targetSdkVersion 27
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        multiDexEnabled true 
     }
 
     buildTypes {

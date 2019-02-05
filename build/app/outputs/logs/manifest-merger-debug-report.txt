@@ -4,7 +4,6 @@ ADDED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_curr
 INJECTED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:1:1-39:12
 INJECTED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:1:1-39:12
 INJECTED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:1:1-39:12
-MERGED from [com.android.support:multidex:1.0.2] /Users/chinotapales/.gradle/caches/transforms-1/files-1.1/multidex-1.0.2.aar/e332786d5b851f4539e9550ca98a6bac/AndroidManifest.xml:17:1-22:12
 MERGED from [:shared_preferences] /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/build/shared_preferences/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-7:12
 INJECTED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:1:1-39:12
 INJECTED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml:1:1-39:12
@@ -69,8 +68,6 @@ uses-sdk
 INJECTED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml
 INJECTED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml
-MERGED from [com.android.support:multidex:1.0.2] /Users/chinotapales/.gradle/caches/transforms-1/files-1.1/multidex-1.0.2.aar/e332786d5b851f4539e9550ca98a6bac/AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:multidex:1.0.2] /Users/chinotapales/.gradle/caches/transforms-1/files-1.1/multidex-1.0.2.aar/e332786d5b851f4539e9550ca98a6bac/AndroidManifest.xml:20:5-43
 MERGED from [:shared_preferences] /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/build/shared_preferences/intermediates/manifests/full/debug/AndroidManifest.xml:5:5-44
 MERGED from [:shared_preferences] /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/build/shared_preferences/intermediates/manifests/full/debug/AndroidManifest.xml:5:5-44
 INJECTED from /Users/chinotapales/Documents/Developer/flutter_projects/flutter_currency_conversion/android/app/src/main/AndroidManifest.xml
