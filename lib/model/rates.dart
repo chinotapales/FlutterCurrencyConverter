@@ -92,7 +92,7 @@ class Rates {
   var usd = 0.0;
   var uyu = 0.0;
   var uzs = 0.0;
-  var vef = 0.0;
+  //var vef = 0.0;
   var vnd = 0.0;
   var xaf = 0.0;
   var xcd = 0.0;
@@ -197,7 +197,7 @@ class Rates {
     rates['USD'] = new Map.from({'symbol': '\$', 'flag': '🇺🇸', 'definition': "United States Dollar", 'value': usd});
     rates['UYU'] = new Map.from({'symbol': '\$', 'flag': '🇺🇾', 'definition': "Uruguayan Peso", 'value': uyu});
     rates['UZS'] = new Map.from({'symbol': 'so\'m', 'flag': '🇺🇿', 'definition': "Uzbekistani Som", 'value': uzs});
-    rates['VEF'] = new Map.from({'symbol': 'Bs.S', 'flag': '🇻🇪', 'definition': "Venezuelan Bolívar", 'value': vef});
+    //rates['VEF'] = new Map.from({'symbol': 'Bs.S', 'flag': '🇻🇪', 'definition': "Venezuelan Bolívar", 'value': vef});
     rates['VND'] = new Map.from({'symbol': '₫', 'flag': '🇻🇳', 'definition': "Vietnamese Dong", 'value': vnd});
     rates['XAF'] = new Map.from({'symbol': 'FCFA', 'flag': '🇨🇫', 'definition': "Central African CFA Franc", 'value': xaf});
     rates['XCD'] = new Map.from({'symbol': '\$', 'flag': '🏳️', 'definition': "East Caribbean Dollar", 'value': xcd});
@@ -299,7 +299,7 @@ class Rates {
     usd = json['USD'] + .0,
     uyu = json['UYU'] + .0,
     uzs = json['UZS'] + .0,
-    vef = json['VEF'] + .0,
+    //vef = json['VEF'] + .0,
     vnd = json['VND'] + .0,
     xaf = json['XAF'] + .0,
     xcd = json['XCD'] + .0,
