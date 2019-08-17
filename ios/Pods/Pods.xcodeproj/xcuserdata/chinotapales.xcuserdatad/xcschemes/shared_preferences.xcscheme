@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1100"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CD759E1E6BADDFFD09A8BC0B41776B35"
+               BlueprintIdentifier = "E4C4C799C14D439F70B839FAFFD23147"
+               BuildableName = "libshared_preferences.a"
                BlueprintName = "shared_preferences"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "libshared_preferences.a">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

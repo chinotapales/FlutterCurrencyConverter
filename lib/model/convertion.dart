@@ -6,7 +6,7 @@ class Convertion {
 
   String from = "";
   String to = "";
-  var rate = 0.0;
+  double rate;
 
   var convertionRates = new List();
 
@@ -22,5 +22,5 @@ class Convertion {
   Convertion.fromJson(Map<String, dynamic> json):
     from = json["from"],
     to = json["to"],
-    rate = json["rate"];
+    rate = (json['rate'] != null) ? json['rate'] + 0.0 : 0.0;
 }

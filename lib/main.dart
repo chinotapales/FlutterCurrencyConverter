@@ -131,7 +131,7 @@ class _MainPageState extends State<MainPage> with RouteAware {
 
   String _getDate() {
     DateTime now = new DateTime.now();
-    var dateFormatter = new DateFormat('MMMM dd');
+    var dateFormatter = new DateFormat('MMMM dd, yyyy');
 
     return dateFormatter.format(now);
   }
@@ -661,6 +661,8 @@ class _MainPageState extends State<MainPage> with RouteAware {
                               mainAxisAlignment: _getAxisAlignment(),
                               children: <Widget>[
                                 new RawMaterialButton(
+                                  onPressed: () {
+                                  },
                                   child: new Text("", style: new TextStyle(
                                       fontSize: 24.0,
                                     ),
